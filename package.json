@@ -1,0 +1,23 @@
+{
+  "name": "codefiesta-web-app",
+  "version": "1.0.0",
+  "description": "Codefiesta solution for problem 1 (also 2, kinda)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shell-raiser/codefiesta-web-app.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/shell-raiser/codefiesta-web-app/issues"
+  },
+  "homepage": "https://github.com/shell-raiser/codefiesta-web-app#readme",
+  "dependencies": {
+    "@sanskrit-coders/sanscript": "^1.2.2"
+  }
+}
