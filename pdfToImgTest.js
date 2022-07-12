@@ -4,7 +4,7 @@
 
 var pdf2img = require('pdf-img-convert');
 // Both HTTP and local paths are supported
-var outputImages1 = pdf2img.convert('https://firhtml.s3-us-west-2.amazonaws.com/d5ffa24cc24c635c2105d05f31f03ecd', {
+var outputImages1 = pdf2img.convert('https://sisypheans.s3-ap-south-1.amazonaws.com/0ae5de42dfa5713aebd96d0356128ec2', {
     width: 2480, //Number in px
     height: 3508, // Number in px
 
@@ -14,10 +14,24 @@ var outputImages1 = pdf2img.convert('https://firhtml.s3-us-west-2.amazonaws.com/
 // From here, the images can be used for other stuff or just saved if that's required:
 
 var fs = require('fs');
+const Tesseract = require('tesseract.js')
+
+
 
 outputImages1.then(function (outputImages) {
-    for (i = 0; i < outputImages.length; i++)
+    for (i = 0; i < outputImages.length; i++) {
         fs.writeFile("output" + i + ".png", outputImages[i], function (error) {
             if (error) { console.error("Error: " + error); }
         });
+
+        Tesseract.recognize(
+            outputImages[i],
+            'kan',
+            { logger: m => console.log(m) }
+        ).then(({ data: { text } }) => {
+            console.log(text);
+        })
+
+
+    }
 });
