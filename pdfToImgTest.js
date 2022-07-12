@@ -19,7 +19,7 @@ var fs = require('fs');
 const tesseract = require("node-tesseract-ocr")
 
 const config = {
-    lang: "eng guj", // default
+    lang: "eng+guj", // default
     oem: 3,
     psm: 3,
 }
