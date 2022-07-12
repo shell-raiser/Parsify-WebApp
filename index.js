@@ -22,6 +22,9 @@ app.post("/extract-text", (req, res) => {
 
     pdfParse(req.files.pdfFile).then(result => {
         console.log(result.text);
+        // We can transliterate text like this 
+        //translitedText = Sanscript.t(result.text, 'kannada', 'hk')
+        //res.send(translitedText);
         res.send(result.text);
     });
 });
