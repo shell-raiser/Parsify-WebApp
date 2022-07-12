@@ -15,7 +15,15 @@ var outputImages1 = pdf2img.convert('https://firhtml.s3-us-west-2.amazonaws.com/
 // From here, the images can be used for other stuff or just saved if that's required:
 
 var fs = require('fs');
-const Tesseract = require('tesseract.js')
+// const Tesseract = require('tesseract.js')
+const tesseract = require("node-tesseract-ocr")
+
+const config = {
+    lang: "guj", // default
+    oem: 3,
+    psm: 3,
+}
+
 
 
 
@@ -25,15 +33,28 @@ outputImages1.then(function (outputImages) {
             if (error) { console.error("Error: " + error); }
         });
 
-        Tesseract.recognize(
-            outputImages[i],
-            'eng',
-            'guj',
-            { logger: m => console.log(m) }
-        ).then(({ data: { text } }) => {
-            console.log(text);
-        })
+        async function main() {
+            try {
+                //const images = outputImages
+                //const text = await tesseract.recognize(images)
+                const img = 'output0.png'
+                const text = await tesseract.recognize(img)
+                console.log("Result:", text)
+            } catch (error) {
+                console.log(error.message)
+            }
+        }
+        main()
+        // Tesseract.recognize(
+        //     outputImages[i],
+        //     'eng',
+        //     'guj',
+        //     { logger: m => console.log(m) }
+        // ).then(({ data: { text } }) => {
+        //     console.log(text);
+        // })
     }
+
 
 
 
