@@ -18,6 +18,9 @@
   },
   "homepage": "https://github.com/shell-raiser/codefiesta-web-app#readme",
   "dependencies": {
-    "@sanskrit-coders/sanscript": "^1.2.2"
+    "@sanskrit-coders/sanscript": "^1.2.2",
+    "express": "^4.18.1",
+    "express-fileupload": "^1.4.0",
+    "pdf-parse": "^1.1.1"
   }
 }
