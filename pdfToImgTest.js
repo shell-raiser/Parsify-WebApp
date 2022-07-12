@@ -1,6 +1,3 @@
-// requires 'fs' and "pdf-img-convert"
-
-// I'm trying this as most OCR stuff takes photos instead of PDF as input
 
 var pdf2img = require('pdf-img-convert');
 // Both HTTP and local paths are supported
