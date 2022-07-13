@@ -50,8 +50,9 @@
     </div>
     <script>
         let States = ["Andhra Pradesh", "Bihar", "Chhattisgarh", "Gujarat", "Haryana", "Karnataka", "Kerala", "Madhya Pradesh", "Maharashtra", "Orissa", "Puducherry", "Punjab", "Rajasthan", "Tamil Nadu", "Uttar Pradesh"
-        ]
-        console.log(stateMenu.value)
+        ];
+        let languageSelected = stateMenu.value;
+        console.log(languageSelected)
         const inpFile = document.getElementById("inpFile");
         const btnUpload = document.getElementById("btnUpload");
         const resultText = document.getElementById("resultText");
@@ -61,7 +62,7 @@
 
             formData.append("pdfFile", inpFile.files[0]);
 
-            fetch("/extract-text", {
+            fetch("/extractOne", {
                 method: "post",
                 body: formData
             }).then(response => {
