@@ -19,8 +19,12 @@
     </ul> -->
     <h1 class="title" style="padding: 30px";>FIR PARSER</h1>
     <div class="container">
-        <input class="button" type="file" id="inpFile">
-        <button class="button" type="button" id="btnUpload">Upload</button>
+        <!-- <input class="button" type="file" id="inpFile"> -->
+        <!-- <button class="button" type="button" id="btnUpload">Upload</button> -->
+        <form enctype="multipart/form-data" method="POST" action="extractOne">
+            <input id="inputfield" type="file" name="upfile">
+            <input id="button" type="submit" value="Upload">
+          </form>
         <label for="States">Select State:</label>
         <select class="menu button" name="States" id="stateMenu">
             <option value="0">Andhra Pradesh</option>
@@ -53,25 +57,11 @@
         ];
         let languageSelected = stateMenu.value;
         console.log(languageSelected)
-        const inpFile = document.getElementById("inpFile");
-        const btnUpload = document.getElementById("btnUpload");
-        const resultText = document.getElementById("resultText");
+        // const inpFile = document.getElementById("inpFile");
+        // const btnUpload = document.getElementById("btnUpload");
+        // const resultText = document.getElementById("resultText");
 
-        btnUpload.addEventListener("click", () => {
-            const formData = new FormData();
-
-            formData.append("pdfFile", inpFile.files[0]);
-
-            fetch("/extractOne", {
-                method: "post",
-                body: formData
-            }).then(response => {
-                return response.text();
-            }).then(extractedText => {
-                resultText.value = extractedText.trim();
-                this.pdfText = resultText.value
-            });
-        });
+    
     </script>
     <section id="info">
         <!--this section will contain information about the prblm statemtn(basically github readme file)-->

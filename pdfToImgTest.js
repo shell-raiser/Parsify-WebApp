@@ -15,7 +15,7 @@ var fs = require('fs');
 // const Tesseract = require('tesseract.js')
 const tesseract = require("node-tesseract-ocr")
 
-const config = {
+const tessConfig = {
     lang: "eng+guj", // default
     oem: 3,
     psm: 3,
@@ -35,8 +35,8 @@ outputImages1.then(function (outputImages) {
                 //const images = outputImages
                 //const text = await tesseract.recognize(images)
                 const img = "output" + i + ".png"
-                const text = await tesseract.recognize(img,config)
-                console.log(text)
+                const text = await tesseract.recognize(img, tessConfig)
+                console.log(i)
             } catch (error) {
                 console.log(error.message)
             }
