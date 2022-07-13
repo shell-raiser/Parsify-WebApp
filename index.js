@@ -69,9 +69,9 @@ app.post("/extractOne", upload.single('upfile'), (req, res) => {
                         // theText = theText + text;
                         //console.log(theText)
                         inCount++;
-                        fs.writeFile(appRoot + "/public/temp/outputText" + inCount + ".txt", text, function (error) {
-                            if (error) { console.error("Error: " + error); }
-                        });
+                        // fs.writeFile(appRoot + "/public/temp/outputText" + inCount + ".txt", text, function (error) {
+                        //     if (error) { console.error("Error: " + error); }
+                        // });
                         console.log('running' + inCount)
                         // console.log('Ran inside');
                         return (text)
