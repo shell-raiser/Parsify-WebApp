@@ -5,11 +5,8 @@ Codefiesta solution for problem 1 (also 2, kinda)
 # Development
 clone repo <br>
 run `npm install` <br>
-run the test file for now
+run `npm start` and open localhost 3000 is browser
 
-
-## Pre-dev-work pending
-- OCR API
 
 ## Road map
 - Parsing
