@@ -7,13 +7,15 @@ let fir_date = theString.substring(theString.search('Date') + 'Date '.length,the
 
 let fir_no = theString.substring(theString.search('FIR No.')+'FIR No.'.length,theString.search('Date')) 
 
-let state = theString.substring(theString.search('District')+'District'.length,theString.search('Police Station')) 
+let accused_name_1 = theString.substring(theString.search('Accused Name')+'Accused Name'.length,theString.search('Age')) 
+let act = theString.substring(theString.search('Act')+'Act'.length,theString.search('Sections')) 
+let complaint_informan_father_husband_name = theString.substring(theString.search("Father's/")+"Father's/".length,theString.search("Father's/")+"Father's/".length+20)
 
-let accused_name_1 = theString.substring(theString.search('District')+'District'.length,theString.search('Police Station')) 
-let act = theString.substring(theString.search('District')+'District'.length,theString.search('Police Station')) 
-let complaint_informan_father_husband_name = theString.substring(theString.search('District')+'District'.length,theString.search('Police Station')) 
-let complaint_informan_name = theString.substring(theString.search('District')+'District'.length,theString.search('Police Station')) 
-let complaint_informan_nationality = theString.substring(theString.search('District')+'District'.length,theString.search('Police Station')) 
+let complaint_informan_name = theString.substring(theString.search('District')+'District'.length,theString.search('Police Station'))
+
+
+let complaint_informan_nationality = theString.substring(theString.search('Nationality')+'Nationality'.length,theString.search('Police Station')) 
+
 let date = theString.substring(theString.search('District')+'District'.length,theString.search('Police Station')) 
 let details_address_1 = theString.substring(theString.search('District')+'District'.length,theString.search('Police Station')) 
 let dist_name_pdf = theString.substring(theString.search('District')+'District'.length,theString.search('Police Station')) 
@@ -23,7 +25,7 @@ let op = {
     "police_station": police_station,
     "fir_date": fir_date,
     "fir_no": fir_no,
-    "state": state,
+    "state": "",
     "accused_name_1": accused_name_1,
     "act": act,
     "complaint_informan_father_husband_name": complaint_informan_father_husband_name,
