@@ -36,7 +36,7 @@ outputImages1.then(function (outputImages) {
                 //const text = await tesseract.recognize(images)
                 const img = "output" + i + ".png"
                 const text = await tesseract.recognize(img,config)
-                console.log("Result:", text)
+                console.log(text)
             } catch (error) {
                 console.log(error.message)
             }
