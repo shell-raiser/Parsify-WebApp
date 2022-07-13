@@ -11,23 +11,47 @@
 </head>
 
 <body>
-    <ul>
-        <!-- <li><a href="info.html">INFO</a></li>
+    <!-- <ul>
+        <li><a href="info.html">INFO</a></li>
         <li><a href="uplode.html">UPLODE</a></li>
         <li><a href="result.html">RESULT</a></li>
-        <li><a href="translate.html">TRANSLATE</a></li> -->
-    </ul>
-    <h1 class="title">FIR PARSER</h1>
-    <input class="button" type="file" id="inpFile">
-    <button class="button" type="button" id="btnUpload">Upload</button>
-    <br>
-    <br>
-    <textarea style="pointer-events: none; min-width: 80%;min-height:300px;" id="resultText"
-        placeholder="Your PDF text will appear here..."></textarea>
+        <li><a href="translate.html">TRANSLATE</a></li>
+    </ul> -->
+    <div class="container">
+        <p class="title">FIR PARSER</p>
+        <input class="button" type="file" id="inpFile">
+        <button class="button" type="button" id="btnUpload">Upload</button>
+        <label for="States">Select State:</label>
+        <select name="States" id="stateMenu">
+            <option value="0">Andhra Pradesh</option>
+            <option value="1">Bihar</option>
+            <option value="2">Chhattisgarh</option>
+            <option value="3">Gujarat</option>
+            <option value="4">Haryana</option>
+            <option value="5">Karnataka</option>
+            <option value="6">Kerala</option>
+            <option value="7">Madhya Pradesh</option>
+            <option value="8">Maharashtra</option>
+            <option value="9">Orissa</option>
+            <option value="10">Puducherry</option>
+            <option value="11">Punjab</option>
+            <option value="12">Rajasthan</option>
+            <option value="13">Tamil Nadu</option>
+            <option value="14">Uttar Pradesh</option>
+            <option value="15" selected>Any of the above</option>
+            
+        <br>
+        <br>
+        <textarea style="pointer-events: none; min-width: 80%;min-height:300px;" id="resultText"
+            placeholder="Your PDF text will appear here..."></textarea>
+
+        
+
+    </div>
     <script>
         let States = ["Andhra Pradesh", "Bihar", "Chhattisgarh", "Gujarat", "Haryana", "Karnataka", "Kerala", "Madhya Pradesh", "Maharashtra", "Orissa", "Puducherry", "Punjab", "Rajasthan", "Tamil Nadu", "Uttar Pradesh"
         ]
-
+        console.log(stateMenu.value)
         const inpFile = document.getElementById("inpFile");
         const btnUpload = document.getElementById("btnUpload");
         const resultText = document.getElementById("resultText");
