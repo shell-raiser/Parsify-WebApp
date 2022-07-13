@@ -1,17 +1,22 @@
 const Sanscript = require("@sanskrit-coders/sanscript")
 const express = require("express");
+const app = express();
 const fileUpload = require("express-fileupload");
 const pdfParse = require("pdf-parse");
 
+app.get('/', serveHTML);
+function serveHTML(req, res) {
+    res.sendFile(__dirname + '/views/index.html');
+}
 
 console.log(Sanscript.t('ಹೇಲ್ಲೋ', 'kannada', 'hk'));
 console.log(Sanscript.t('హేల్లో', 'telugu', 'hk'));
 console.log(Sanscript.t('ஹேல்லோ', 'tamil', 'hk'));
 
 
-const app = express();
 
-app.use("/", express.static("public"));
+// app.use("/", express.static("public"));
+app.use('/public',express.static(__dirname + '/public'));
 app.use(fileUpload());
 
 app.post("/extract-text", (req, res) => {
