@@ -35,4 +35,28 @@ let op = {
     "details_address_1": details_address_1,
     "dist_name_pdf": dist_name_pdf,
 }
+
+let occupation = theString.substring(theString.search('Occupatior')+'Occupatior'.length,theString.search('Address'))
+
+let occupation_org //not found
+
+let occurrence_of_offence_date_from = theString.substring(theString.search('Date from ')+'Date from '.length,theString.search('Date to ')+"07/04/2019".length + 'Date to '.length)
+let occurrence_of_offence_time_from = theString.substring(theString.search('Time from'),theString.search('Time to')+'Time from'.length,theString.search('Informatior received at PS'))
+let occurrence_of_offence_date_to = theString.substring(theString.search('Time to')+'Time to'.length,theString.search('Informatior received at PS'))
+let occurrence_of_offence_time_period = theString.substring(theString.search('Time Period')+" ",theString.search('Time from'))//doubt
+let occurrence_of_offence_time_to = theString.substring(theString.search('Time to')+'Time to'.length,theString.search('Time to')+"19:10".length + 'Time to'.length)
+
+let place_of_occurrence_district_org // not found
+let place_of_occurrence_name_of_police_station  // converted text not found
+
+let place_of_occurrence_name_of_police_station_org = theString.substring(theString.search('Name of P.S. District')+'Name of P.S. District'.length,theString.search('Complainan/Informan'))
+
+let police_station_org // not found
+
+let sections = theString.substring(theString.search('Sections')+'Sections'.length,theString.search('Occurrence of offence'))// not found
+
+let sections_org // not found
+
+let year // not found
+
 console.log(op)
