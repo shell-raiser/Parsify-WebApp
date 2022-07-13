@@ -12,20 +12,21 @@
 
 <body>
     <ul>
-        <li><a href="info.html">INFO</a></li>
+        <!-- <li><a href="info.html">INFO</a></li>
         <li><a href="uplode.html">UPLODE</a></li>
         <li><a href="result.html">RESULT</a></li>
-        <li><a href="translate.html">TRANSLATE</a></li>
+        <li><a href="translate.html">TRANSLATE</a></li> -->
     </ul>
     <h1 class="title">FIR PARSER</h1>
     <input class="button" type="file" id="inpFile">
     <button class="button" type="button" id="btnUpload">Upload</button>
     <br>
     <br>
-    <textarea style="width: 300px; height: 150px;" id="resultText"
+    <textarea style="pointer-events: none; min-width: 80%;min-height:300px;" id="resultText"
         placeholder="Your PDF text will appear here..."></textarea>
     <script>
-
+        let States = ["Andhra Pradesh", "Bihar", "Chhattisgarh", "Gujarat", "Haryana", "Karnataka", "Kerala", "Madhya Pradesh", "Maharashtra", "Orissa", "Puducherry", "Punjab", "Rajasthan", "Tamil Nadu", "Uttar Pradesh"
+        ]
 
         const inpFile = document.getElementById("inpFile");
         const btnUpload = document.getElementById("btnUpload");
