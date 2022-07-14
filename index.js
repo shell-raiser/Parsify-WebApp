@@ -58,6 +58,7 @@ app.post("/extractOne", upload.single('upfile'), (req, res) => {
                 console.log(i)
                 fs.writeFile(appRoot + "/public/temp/output" + i + ".png", outputImages[i], function (error) {
                     if (error) { console.error("Error: " + error); }
+                    console.log("IMG REND")
                 });
 
                 async function main() {
@@ -118,4 +119,8 @@ app.post("/extractOne", upload.single('upfile'), (req, res) => {
     // });
 });
 
-app.listen(3000);
+//app.listen(3000);
+const port = process.env.PORT || 3000;
+app.listen(port, function() {
+    console.log('Your app is listening on port ' + port)
+});
