@@ -4,6 +4,7 @@ const multer = require('multer')
 const express = require("express");
 const app = express();
 var fs = require('fs');
+const fs1 = require("fs-extra");
 const tesseract = require("node-tesseract-ocr");
 var path = require('path');
 global.appRoot = path.resolve(__dirname);
@@ -52,7 +53,13 @@ app.post("/extractOne", upload.single('upfile'), (req, res) => {
         let theText = " ";
         let inCount = 0;
         let outCount = 0;
-
+        fs.mkdir(appRoot + "/public/temp", { recursive: true }, (error) => {
+            if (error) {
+                console.log(error);
+            } else {
+                console.log("New Directory created successfully !!");
+            }
+        });
         outputImages.then(function (outputImages) {
             for (i = 0; i < outputImages.length; i++) {
                 console.log(i)
@@ -89,6 +96,13 @@ app.post("/extractOne", upload.single('upfile'), (req, res) => {
                     outCount++;
                     if (outCount == outputImages.length) {
                         console.log("ALL DONE")
+                        fs1.remove(appRoot+"/public/temp", (error) => {
+                            if (error) {
+                              console.log(error);
+                            } else {
+                              console.log("Folder Deleted Successfully !!");
+                            }
+                          });
                         res.send(theText);
                     }
                 }
@@ -121,6 +135,6 @@ app.post("/extractOne", upload.single('upfile'), (req, res) => {
 
 //app.listen(3000);
 const port = process.env.PORT || 3000;
-app.listen(port, function() {
+app.listen(port, function () {
     console.log('Your app is listening on port ' + port)
 });
