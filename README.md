@@ -33,3 +33,8 @@ sudo apt-get install tesseract-ocr -y; npm install; sudo wget -P /usr/share/tess
 
 ## AWS Hosting 
 - http://ec2-54-174-113-31.compute-1.amazonaws.com:3000
+
+## Team Tense Turtles
+* K S SHAILESH
+* THANMAI SAI P
+* SANJAY C HIREMATH
