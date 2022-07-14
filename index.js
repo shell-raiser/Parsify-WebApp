@@ -258,7 +258,7 @@ app.post("/extractOne", upload.single('upfile'), (req, res) => {
 
 
     }
-    else 
+    else { 
         res.send('Please Upload Valid PDF');
     }
 
