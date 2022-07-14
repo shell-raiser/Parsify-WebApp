@@ -258,8 +258,8 @@ app.post("/extractOne", upload.single('upfile'), (req, res) => {
 
 
     }
-    else if (fileType == "text/csv") {
-        res.send('text');
+    else 
+        res.send('Please Upload Valid PDF');
     }
 
     // pdfParse(req.files.pdfFile).then(result => {
