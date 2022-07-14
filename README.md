@@ -15,6 +15,7 @@ There are crores of FIR copies stored in pdf’s from all over india in various 
 
 * An API for batch-processing multiple files and getting JSON Object as a response. Which can be directly stored in a NoSQL DB like MongoDB.
 
+![image](https://user-images.githubusercontent.com/78999739/178934517-b6b96ad7-4f7d-4b31-ba9f-fa94de1ab55d.png)
 
 ---
 
@@ -37,7 +38,7 @@ npm start
 ```
 and open ```localhost:3000``` in browser to view the website
 
-## Presentation Link
+### Presentation Link
 * https://shorturl.at/kn014
 
 ## Made By Team - Tense Turtles
