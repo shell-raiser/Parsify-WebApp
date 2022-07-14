@@ -1,5 +1,8 @@
 body {
     background-color: aquamarine;
     text-align: center;
-    height: 100vh;
+    min-height: 100vh;
+}
+#foot{
+    background-color: rgb(115, 228, 190);
 }
