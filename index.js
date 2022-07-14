@@ -18,7 +18,7 @@ const { text } = require("express");
 
 app.get('/', serveHTML);
 function serveHTML(req, res) {
-    res.sendFile(__dirname + '/views/index.html');
+    res.sendFile(__dirname + '/index.html');
 }
 
 console.log(Sanscript.t('ಹೇಲ್ಲೋ', 'kannada', 'hk'));
