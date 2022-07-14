@@ -3,6 +3,7 @@ var cors = require('cors');
 const multer = require('multer')
 const express = require("express");
 const app = express();
+var bodyParser = require('body-parser')
 var fs = require('fs');
 const fs1 = require("fs-extra");
 const tesseract = require("node-tesseract-ocr");
@@ -29,6 +30,59 @@ console.log(Sanscript.t('ஹேல்லோ', 'tamil', 'hk'));
 // app.use("/", express.static("public"));
 app.use('/public', express.static(__dirname + '/public'));
 
+function checkLang(i) {
+    switch (i) {
+        case 0:
+            return "tel"
+            break;
+        case 1:
+            return "hin";
+            break;
+        case 2:
+            return "hin";
+            break;
+        case 3:
+            return "guj";
+            break;
+        case 4:
+            return "hin";
+            break;
+        case 5:
+            return "kan";
+            break;
+        case 6:
+            return "mal";
+            break;
+        case 7:
+            return "hin";
+            break;
+        case 8:
+            return "mar";
+            break;
+        case 9:
+            return "ori";
+            break;
+        case 10:
+            return "tam";
+            break;
+        case 11:
+            return "pan";
+            break;
+        case 12:
+            return "hin";
+            break;
+        case 13:
+            return "tam";
+            break;
+        case 14:
+            return "hin";
+            break;
+
+        default:
+            return "hin+tam+pan+ori+mar+mal+kan+guj+tel";
+            break;
+    }
+}
 
 
 
@@ -44,8 +98,9 @@ app.post("/extractOne", upload.single('upfile'), (req, res) => {
                 height: 3508, // Number in px
             }
         );
+
         const tessConfig = {
-            lang: "eng+guj", // default
+            lang: "eng+" + checkLang(req.body.States),
             oem: 3,
             psm: 3,
         }
@@ -57,7 +112,7 @@ app.post("/extractOne", upload.single('upfile'), (req, res) => {
             if (error) {
                 console.log(error);
             } else {
-                console.log("New Directory created successfully !!");
+                console.log("Temp Directory created successfully !!");
             }
         });
         outputImages.then(function (outputImages) {
@@ -96,13 +151,13 @@ app.post("/extractOne", upload.single('upfile'), (req, res) => {
                     outCount++;
                     if (outCount == outputImages.length) {
                         console.log("ALL DONE")
-                        fs1.remove(appRoot+"/public/temp", (error) => {
+                        fs1.remove(appRoot + "/public/temp", (error) => {
                             if (error) {
-                              console.log(error);
+                                console.log(error);
                             } else {
-                              console.log("Folder Deleted Successfully !!");
+                                console.log("Temp Folder Deleted Successfully !!");
                             }
-                          });
+                        });
                         res.send(theText);
                     }
                 }

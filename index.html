@@ -17,39 +17,41 @@
         <li><a href="result.html">RESULT</a></li>
         <li><a href="translate.html">TRANSLATE</a></li>
     </ul> -->
-    <h1 class="title" style="padding: 30px";>FIR PARSER</h1>
+    <h1 class="title" style="padding: 30px" ;>FIR PARSER</h1>
     <div class="container">
         <!-- <input class="button" type="file" id="inpFile"> -->
         <!-- <button class="button" type="button" id="btnUpload">Upload</button> -->
         <form enctype="multipart/form-data" method="POST" action="extractOne">
-            <input id="inputfield" type="file" name="upfile">
-            <input id="button" type="submit" value="Upload">
-          </form>
-        <label for="States">Select State:</label>
-        <select class="menu button" name="States" id="stateMenu">
-            <option value="0">Andhra Pradesh</option>
-            <option value="1">Bihar</option>
-            <option value="2">Chhattisgarh</option>
-            <option value="3">Gujarat</option>
-            <option value="4">Haryana</option>
-            <option value="5">Karnataka</option>
-            <option value="6">Kerala</option>
-            <option value="7">Madhya Pradesh</option>
-            <option value="8">Maharashtra</option>
-            <option value="9">Orissa</option>
-            <option value="10">Puducherry</option>
-            <option value="11">Punjab</option>
-            <option value="12">Rajasthan</option>
-            <option value="13">Tamil Nadu</option>
-            <option value="14">Uttar Pradesh</option>
-            <option value="15" selected>Any of the above</option>
-        </select>
+            <input id="inputfield" class="button" type="file" name="upfile">
+            <label for="States">Select State:</label>
+            <select class="menu button" name="States" id="stateMenu">
+                <option value="0">Andhra Pradesh</option>
+                <option value="1">Bihar</option>
+                <option value="2">Chhattisgarh</option>
+                <option value="3">Gujarat</option>
+                <option value="4">Haryana</option>
+                <option value="5">Karnataka</option>
+                <option value="6">Kerala</option>
+                <option value="7">Madhya Pradesh</option>
+                <option value="8">Maharashtra</option>
+                <option value="9">Orissa</option>
+                <option value="10">Puducherry</option>
+                <option value="11">Punjab</option>
+                <option value="12">Rajasthan</option>
+                <option value="13">Tamil Nadu</option>
+                <option value="14">Uttar Pradesh</option>
+                <option value="15" selected>Any of the above</option>
+            </select>
+            <input id="button" class="button" type="submit" value="Upload">
+        </form>
+
+
         <br>
         <br>
         <textarea style="pointer-events: none; min-width: 80%;min-height:300px; text-align: center;" id="resultText"
             placeholder="Your PDF text will appear here..."></textarea>
 
-        
+
 
     </div>
     <script>
@@ -61,7 +63,7 @@
         // const btnUpload = document.getElementById("btnUpload");
         // const resultText = document.getElementById("resultText");
 
-    
+
     </script>
     <section id="info">
         <!--this section will contain information about the prblm statemtn(basically github readme file)-->
