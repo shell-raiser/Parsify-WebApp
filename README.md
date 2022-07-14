@@ -3,9 +3,10 @@
 There are crores of FIR copies  stored in pdf’s from all over india in various states which are present in regional languages which need to be parsed and the information need to collected.
 
 solution:<br>
-* Since the FIR copies collected are in regional languages we will need to extract the information and translate them to standard english 
-* Extracting the information can by done using OCR (Optical character recognition). 
-* Once information is collected we can parse the information and extract the required fields from the information and store it  
+* A Web App for uploading a PDF (or a PDF URL) and obtaining a JSON String with all the necessary info about the FIR, nicely formatted inside the HTML page, available for copy-pasting.
+
+* An API for batch-processing multiple files and getting JSON Object as a response. Which can be directly stored in a NoSQL DB like MongoDB.
+
 
 ---
 
