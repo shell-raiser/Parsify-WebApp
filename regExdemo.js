@@ -32,7 +32,7 @@ let occupation = theString.substring(theString.search('Occupatio')+'Occupatio'.l
 let occurrence_of_offence_date_from = theString.substring(theString.search('Date from ')+'Date from '.length,theString.search('Date to ')+"07/04/2019".length + 'Date to '.length)
 let occurrence_of_offence_time_from = theString.substring(theString.search('Time from'),theString.search('Time to')+'Time from'.length,theString.search('Informatior received at PS'))
 let occurrence_of_offence_date_to = theString.substring(theString.search('Time to')+'Time to'.length,theString.search('Informatior received at PS'))
-let occurrence_of_offence_time_period = theString.substring(theString.search('Time Period')+" ",theString.search('Time from'))//doubt
+let occurrence_of_offence_time_period = theString.substring(theString.search('Time Period')+" ",theString.search('Time from'))
 let occurrence_of_offence_time_to = theString.substring(theString.search('Time to')+'Time to'.length,theString.search('Time to')+"19:10".length + 'Time to'.length)
 
 
