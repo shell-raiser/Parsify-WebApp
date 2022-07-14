@@ -36,137 +36,151 @@ app.use('/public', express.static(__dirname + '/public'));
 
 function checkLang(i) {
     switch (i) {
-        case 0:
-            return "tel"
+        case '0':
+            return { tess: "tel", ss: "telugu" }
             break;
-        case 1:
-            return "hin";
+        case '1':
+            return { tess: "hin", ss: "hindi" }
             break;
-        case 2:
-            return "hin";
+        case '2':
+            return { tess: "hin", ss: "hindi" };
             break;
-        case 3:
-            return "guj";
+        case '3':
+            return { tess: "guj", ss: "gujarati" };
             break;
-        case 4:
-            return "hin";
+        case '4':
+            return { tess: "hin", ss: "hindi" };
             break;
-        case 5:
-            return "kan";
+        case '5':
+            return { tess: "kan", ss: "kannada" };
             break;
-        case 6:
-            return "mal";
+        case '6':
+            return { tess: "mal", ss: "malayalam" };
             break;
-        case 7:
-            return "hin";
+        case '7':
+            return { tess: "hin", ss: "hindi" };
             break;
-        case 8:
-            return "mar";
+        case '8':
+            return { tess: "mar", ss: "hindi" };
             break;
-        case 9:
-            return "ori";
+        case '9':
+            return { tess: "ori", ss: "hindi" };
             break;
-        case 10:
-            return "tam";
+        case '10':
+            return { tess: "tam", ss: "tamil" };
             break;
-        case 11:
-            return "pan";
+        case '11':
+            return { tess: "pan", ss: "hindi" };
             break;
-        case 12:
-            return "hin";
+        case '12':
+            return { tess: "hin", ss: "hindi" };
             break;
-        case 13:
-            return "tam";
+        case '13':
+            return { tess: "tam", ss: "tamil" };
             break;
-        case 14:
-            return "hin";
-            break;
-
-        default:
-            return "hin+tam+pan+ori+mar+mal+kan+guj+tel";
+        case '14':
+            return { tess: "hin", ss: "hindi" };
             break;
     }
 }
 
-function parseString(theString) {
-    let dist_name = theString.substring(theString.search('District') + 'District'.length, theString.search('Police Station'))
 
-    let police_station = theString.substring(theString.search('Police Station') + 'Police Station'.length, theString.indexOf('FIR', 10) - 5)
-
-    let fir_date = theString.substring(theString.search('Date') + 'Date '.length, theString.search('Date') + "07/04/2019".length + 'Date '.length)
-
-    let fir_no = theString.substring(theString.search('FIR No.') + 'FIR No.'.length, theString.search('Date'))
-
-    let accused_name_1 = theString.substring(theString.search('Accused Name') + 'Accused Name'.length, theString.search('Age'))
-    let act = theString.substring(theString.search('Act') + 'Act'.length, theString.search('Sections'))
-
-    let complaint_informan_father_husband_name = theString.substring(theString.search("Father's/") + "Father's/".length, theString.search("Father's/") + "Father's/".length + 20)
-    // let complaint_informan_father_husband_name = theString.substring(theString.search("Father's/")+"Father's/".length,theString.search('\('))
-    let Name = theString.indexOf("Name")
-    console.log(Name)
-    let complaint_informan_name = theString.substring(theString.indexOf("Name ASI", 1000) + 'Name ASI'.length, theString.search('Name ASI') + 'Name ASI'.length + 11)
-
-
-    let complaint_informan_nationality = theString.substring(theString.search('Nationality') + 'Nationality'.length, theString.search('Nationality') + 'Nationality'.length + 8)
-
-    let date = theString.substring(theString.search('Date') + 'Date'.length, theString.search('Date') + 'Date'.length + 11)
-
-    let details_address_1 = theString.substring(theString.search('Address') + 'Address'.length, theString.search('Address') + 'Address'.length + 50)
-    let dist_name_pdf = theString.substring(theString.search('District') + 'District'.length, theString.search('Police Station'))
-
-
-
-    let occupation = theString.substring(theString.search('Occupatio') + 'Occupatio'.length, theString.indexOf('Address', 1200))
-
-
-    let occurrence_of_offence_date_from = theString.substring(theString.search('Date from ') + 'Date from '.length, theString.search('Date to ') + "07/04/2019".length + 'Date to '.length)
-    let occurrence_of_offence_time_from = theString.substring(theString.search('Time from'), theString.search('Time to') + 'Time from'.length, theString.search('Informatior received at PS'))
-    let occurrence_of_offence_date_to = theString.substring(theString.search('Time to') + 'Time to'.length, theString.search('Informatior received at PS'))
-    let occurrence_of_offence_time_period = theString.substring(theString.search('Time Period') + " ", theString.search('Time from'))//doubt
-    let occurrence_of_offence_time_to = theString.substring(theString.search('Time to') + 'Time to'.length, theString.search('Time to') + "19:10".length + 'Time to'.length)
-
-
-    let place_of_occurrence_name_of_police_station_org = theString.substring(theString.search('Name of P.S. District') + 'Name of P.S. District'.length, theString.search('Complainan/Informan'))
-
-
-    let sections = theString.substring(theString.search('Sections') + 'Sections'.length, theString.search('Sections') + 'Sections'.length + 13)
-
-
-    let year = date.substring(date.length - 4);
-
-    let op = {
-        "dist_name": dist_name,
-        "police_station": police_station,
-        "fir_date": fir_date,
-        "fir_no": fir_no,
-        "state": "",
-        "accused_name_1": accused_name_1,
-        "act": act,
-        "complaint_informan_father_husband_name": complaint_informan_father_husband_name,
-        "complaint_informan_name": complaint_informan_name,
-        "complaint_informan_nationality": complaint_informan_nationality,
-        "date": date,
-        "details_address_1": details_address_1,
-        "dist_name_pdf": dist_name,
-        "occupation": occupation,
-        "occurrence_of_offence_date_from": occurrence_of_offence_date_from,
-        "occurrence_of_offence_time_from": occurrence_of_offence_time_from,
-        "occurrence_of_offence_date_to": occurrence_of_offence_date_to,
-        "occurrence_of_offence_time_period": occurrence_of_offence_time_period,
-        "occurrence_of_offence_time_to": occurrence_of_offence_time_to,
-        "place_of_occurrence_name_of_police_station_org": place_of_occurrence_name_of_police_station_org,
-        "sections": sections,
-        "year": year
-    }
-    return op;
-}
-
+// console.log(checkLang(0).tess);
 
 app.post("/extractOne", upload.single('upfile'), (req, res) => {
     const fileName = req.file.originalname;
     const fileType = req.file.mimetype;
     const fileSize = req.file.size;
     const theFile = req.file.buffer;
+    var theLang = checkLang(req.body.States);
+    function parseString(theString) {
+        let dist_name_org = theString.substring(theString.search('District') + 'District'.length, theString.search('Police Station'))
+        let dist_name = Sanscript.t(dist_name_org, theLang.ss, 'hk')
+        let police_station_org = theString.substring(theString.search('Police Station') + 'Police Station'.length, theString.indexOf('FIR', 10) - 5)
+        let police_station = Sanscript.t(police_station_org, theLang.ss, 'hk')
+        let fir_date = theString.substring(theString.search('Date') + 'Date '.length, theString.search('Date') + "07/04/2019".length + 'Date '.length)
+    
+        let fir_no = theString.substring(theString.search('FIR No.') + 'FIR No.'.length, theString.search('Date'))
+    
+        let accused_name_1_org = theString.substring(theString.search('Accused Name') + 'Accused Name'.length, theString.search('Age'))
+        let accused_name_1 = Sanscript.t(accused_name_1_org, theLang.ss, 'hk');
+    
+        let act_org = theString.substring(theString.search('Act') + 'Act'.length, theString.search('Sections'))
+        let act = Sanscript.t(act_org, theLang.ss, 'hk');
+    
+        let complaint_informan_father_husband_name_org = theString.substring(theString.search("Father's/") + "Father's/".length, theString.search("Father's/") + "Father's/".length + 20)
+        let complaint_informan_father_husband_name = Sanscript.t(complaint_informan_father_husband_name_org, theLang.ss, 'hk');
+        // let complaint_informan_father_husband_name = theString.substring(theString.search("Father's/")+"Father's/".length,theString.search('\('))
+    
+        let complaint_informan_name_org = theString.substring(theString.indexOf("Name ASI", 1000) + 'Name ASI'.length, theString.search('Name ASI') + 'Name ASI'.length + 11)
+        let complaint_informan_name = Sanscript.t(complaint_informan_name_org, theLang.ss, 'hk');
+    
+        let complaint_informan_nationality_org = theString.substring(theString.search('Nationality') + 'Nationality'.length, theString.search('Nationality') + 'Nationality'.length + 8)
+        let complaint_informan_nationality = Sanscript.t(complaint_informan_nationality_org, theLang.ss, 'hk');
+        let date = theString.substring(theString.search('Date') + 'Date'.length, theString.search('Date') + 'Date'.length + 11)
+    
+        let details_address_1_org = theString.substring(theString.search('Address') + 'Address'.length, theString.search('Address') + 'Address'.length + 50)
+        let details_address_1 = Sanscript.t(details_address_1_org, theLang.ss, 'hk');
+        
+    
+    
+    
+        let occupation_org = theString.substring(theString.search('Occupatio') + 'Occupatio'.length, theString.indexOf('Address', 1200))
+        let occupation = Sanscript.t(occupation_org, theLang.ss, 'hk');
+    
+    
+        let occurrence_of_offence_date_from = theString.substring(theString.search('Date from ') + 'Date from '.length, theString.search('Date to ') + "07/04/2019".length + 'Date to '.length)
+        let occurrence_of_offence_time_from = theString.substring(theString.search('Time from'), theString.search('Time to') + 'Time from'.length, theString.search('Informatior received at PS'))
+        let occurrence_of_offence_date_to = theString.substring(theString.search('Time to') + 'Time to'.length, theString.search('Informatior received at PS'))
+        let occurrence_of_offence_time_period = theString.substring(theString.search('Time Period') + " ", theString.search('Time from'))//doubt
+        let occurrence_of_offence_time_to = theString.substring(theString.search('Time to') + 'Time to'.length, theString.search('Time to') + "19:10".length + 'Time to'.length)
+    
+    
+        let place_of_occurrence_name_of_police_station_org = theString.substring(theString.search('Name of P.S. District') + 'Name of P.S. District'.length, theString.search('Complainan/Informan'))
+        let place_of_occurrence_name_of_police_station = Sanscript.t(place_of_occurrence_name_of_police_station_org, theLang.ss, 'hk');
+    
+    
+        let sections = theString.substring(theString.search('Sections') + 'Sections'.length, theString.search('Sections') + 'Sections'.length + 13)
+    
+    
+        let year = date.substring(date.length - 4);
+    
+        let op = {
+            "dist_name": dist_name,
+            "dist_name_org": dist_name_org,
+            "police_station": police_station,
+            "police_station_org": police_station_org,
+            "fir_date": fir_date,
+            "fir_no": fir_no,
+            "state": "",
+            "accused_name_1": accused_name_1,
+            "act": act,
+            "act_org": act_org,
+            "complaint_informan_father_husband_name": complaint_informan_father_husband_name,
+            "complaint_informan_father_husband_name_org": complaint_informan_father_husband_name_org,
+            "complaint_informan_name": complaint_informan_name,
+            "complaint_informan_name_org": complaint_informan_name_org,
+            "complaint_informan_nationality": complaint_informan_nationality,
+            "complaint_informan_nationality_org": complaint_informan_nationality_org,
+            "date": date,
+            "details_address_1": details_address_1,
+            "details_address_1_org": details_address_1_org,
+            "dist_name_pdf": dist_name,
+            "dist_name_pdf_org": dist_name_org,
+            "occupation": occupation,
+            "occupation_org": occupation_org,
+            "occurrence_of_offence_date_from": occurrence_of_offence_date_from,
+            "occurrence_of_offence_time_from": occurrence_of_offence_time_from,
+            "occurrence_of_offence_date_to": occurrence_of_offence_date_to,
+            "occurrence_of_offence_time_period": occurrence_of_offence_time_period,
+            "occurrence_of_offence_time_to": occurrence_of_offence_time_to,
+            "place_of_occurrence_name_of_police_station_org": place_of_occurrence_name_of_police_station_org,
+            "place_of_occurrence_name_of_police_station_org": place_of_occurrence_name_of_police_station_org,
+            "sections": sections,
+            "year": year
+        }
+        return op;
+    }
     if (fileType == "application/pdf") {
         var outputImages = pdf2img.convert(theFile
             , {
@@ -174,9 +188,13 @@ app.post("/extractOne", upload.single('upfile'), (req, res) => {
                 height: 3508, // Number in px
             }
         );
-
+        
+        console.log(typeof (req.body.States))
+        console.log(req.body.States)
+        console.log(theLang)
+        
         const tessConfig = {
-            lang: "eng+" + checkLang(req.body.States),
+            lang: "eng+" + theLang.tess,
             oem: 3,
             psm: 3,
         }
@@ -258,7 +276,7 @@ app.post("/extractOne", upload.single('upfile'), (req, res) => {
 
 
     }
-    else { 
+    else {
         res.send('Please Upload Valid PDF');
     }
 
