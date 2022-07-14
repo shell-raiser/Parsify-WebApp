@@ -32,4 +32,4 @@ sudo apt-get install tesseract-ocr -y; npm install; sudo wget -P /usr/share/tess
 - JSON Formatting 
 
 ## AWS Hosting 
-- ec2-54-174-113-31.compute-1.amazonaws.com:3000
+- http://ec2-54-174-113-31.compute-1.amazonaws.com:3000
