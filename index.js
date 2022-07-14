@@ -1,3 +1,4 @@
+const cheerio = require('cheerio');
 const Sanscript = require("@sanskrit-coders/sanscript")
 var cors = require('cors');
 const multer = require('multer')
@@ -17,11 +18,14 @@ var pdf2img = require('pdf-img-convert');
 const { text } = require("express");
 
 
+
 app.get('/', serveHTML);
 function serveHTML(req, res) {
     res.sendFile(__dirname + '/index.html');
 }
 
+const $ = cheerio.load(fs.readFileSync('index.html'));
+// console.log($.html())
 console.log(Sanscript.t('ಹೇಲ್ಲೋ', 'kannada', 'hk'));
 console.log(Sanscript.t('హేల్లో', 'telugu', 'hk'));
 console.log(Sanscript.t('ஹேல்லோ', 'tamil', 'hk'));
@@ -230,7 +234,14 @@ app.post("/extractOne", upload.single('upfile'), (req, res) => {
                                 console.log("Temp Folder Deleted Successfully !!");
                             }
                         });
-                        res.send(parseString(theText));
+                        const $ = cheerio.load(fs.readFileSync('index.html'));
+                        // $('#resultText').text() = "Something"
+                        theText = parseString(theText)
+                        $('#resultText').text(JSON.stringify(theText));
+                        // console.log($.html())
+                        console.log($('#resultText').text())
+                        // res.send(parseString(theText));
+                        res.send($.html());
                     }
                 }
                 theTextCalc()
