@@ -40,7 +40,7 @@ npm start
 and open ```localhost:3000``` in browser to view the website
 
 ### Presentation Link
-* https://shorturl.at/kn014
+https://docs.google.com/presentation/d/1S7rnvWj5elVapgD0HpdAr4orYBSNJtxE78vGL2NQ1WE/edit
 
 ## Made By Team - Tense Turtles
 * [K S SHAILESH](https://github.com/shell-raiser)
