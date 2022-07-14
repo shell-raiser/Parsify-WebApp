@@ -4,18 +4,23 @@ There are crores of FIR copies  stored in pdf’s from all over india in various
 
 solution:<br>
 * Since the FIR copies collected are in regional languages we will need to extract the information and translate them to standard english 
-* Extracting the information can by done using OCR (Optical character recognition. 
+* Extracting the information can by done using OCR (Optical character recognition). 
 * Once information is collected we can parse the information and extract the required fields from the information and store it  
 
 ---
+
 # Development
-clone repo using `git clone`<br>
-run `npm install` <br>
-run `npm start` and open localhost 3000 in browser
+This project is meant to be run on a Ubuntu (Or some specific Debian distro) server. It is possible to run it on other platforms if you know what you are doing.
+<br>
+
+---
+- clone repo <br>
+```git clone https://github.com/shell-raiser/codefiesta-web-app.git```<br>
+- Install all dependencies and packages <br>
+```sudo apt-get install tesseract-ocr -y; npm install; sudo wget -P /usr/share/tesseract-ocr/4.00/tessdata/ https://github.com/tesseract-ocr/tessdata/raw/4.00/hin.traineddata https://github.com/tesseract-ocr/tessdata/raw/4.00/tam.traineddata   https://github.com/tesseract-ocr/tessdata/raw/4.00/pan.traineddata   https://github.com/tesseract-ocr/tessdata/raw/4.00/ori.traineddata   https://github.com/tesseract-ocr/tessdata/raw/4.00/mar.traineddata   https://github.com/tesseract-ocr/tessdata/raw/4.00/mal.traineddata   https://github.com/tesseract-ocr/tessdata/raw/4.00/kan.traineddata   https://github.com/tesseract-ocr/tessdata/raw/4.00/guj.traineddata   https://github.com/tesseract-ocr/tessdata/raw/4.00/tel.traineddata```<br>
+- run `npm start` and open localhost 3000 in browser
 
 ## Road map
 - Parsing
 - Transliteration
 - JSON Formatting 
-
-
