@@ -37,6 +37,9 @@ npm start
 ```
 and open ```localhost:3000``` in browser to view the website
 
+## Presentation Link
+* shorturl.at/kn014
+
 ## Made By Team - Tense Turtles
 * [K S SHAILESH](https://github.com/shell-raiser)
 * [THANMAI SAI P](https://github.com/thanmaisai)
