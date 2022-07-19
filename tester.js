@@ -1,11 +1,11 @@
-const Sanscript = require("@sanskrit-coders/sanscript")
 var fs = require('fs');
 const fs1 = require("fs-extra");
 const tesseract = require("node-tesseract-ocr");
 var path = require('path');
 global.appRoot = path.resolve(__dirname);
 var pdf2img = require('pdf-img-convert');
-const { text } = require("express");
+const csv = require('csv-parser')
+
 
 function checkLang(i) {
     switch (i) {
@@ -57,10 +57,10 @@ function checkLang(i) {
     }
 }
 
-const csv = require('csv-parser')
+
 
 const results = [];
-
+//for (k = 0; k < 5; k++) {
 fs.createReadStream('./Output Template (1).csv')
     .pipe(csv())
     .on('data', (data) => results.push(data))
@@ -108,7 +108,7 @@ fs.createReadStream('./Output Template (1).csv')
             let year = date.substring(date.length - 4);
 
             let op = {
-                
+
                 "dist_name_org": dist_name_org,
                 "police_station_org": police_station_org,
                 "fir_date": fir_date,
@@ -153,7 +153,7 @@ fs.createReadStream('./Output Template (1).csv')
             let theText = "";
             let inCount = 0;
             let outCount = 0;
-            fs.mkdir(appRoot + "/public/temp"+j, { recursive: true }, (error) => {
+            fs.mkdir(appRoot + "/public/temp" + j, { recursive: true }, (error) => {
                 if (error) {
                     console.log(error);
                 } else {
@@ -163,7 +163,7 @@ fs.createReadStream('./Output Template (1).csv')
             outputImages.then(function (outputImages) {
                 for (i = 0; i < outputImages.length; i++) {
                     // console.log(i)
-                    fs.writeFile(appRoot + "/public/temp"+ j +"/output" + i  + ".png", outputImages[i], function (error) {
+                    fs.writeFile(appRoot + "/public/temp" + j + "/output" + i + ".png", outputImages[i], function (error) {
                         if (error) { console.error("Error: " + error); }
                         // console.log("IMG REND")
                     });
@@ -172,7 +172,7 @@ fs.createReadStream('./Output Template (1).csv')
                         try {
                             //const images = outputImages
                             //const text = await tesseract.recognize(images)
-                            const img = appRoot + "/public/temp"+ j +"/output" + i + ".png"
+                            const img = appRoot + "/public/temp" + j + "/output" + i + ".png"
                             var text = await tesseract.recognize(img, tessConfig)
                             // theText = theText + text;
                             inCount++;
@@ -194,8 +194,8 @@ fs.createReadStream('./Output Template (1).csv')
                         // console.log(text)
                         outCount++;
                         if (outCount == outputImages.length) {
-                            console.log("ALL DONE"+ j)
-                            fs1.remove(appRoot + "/public/temp"+ j, (error) => {
+                            console.log("ALL DONE" + j)
+                            fs1.remove(appRoot + "/public/temp" + j, (error) => {
                                 if (error) {
                                     console.log(error);
                                 } else {
@@ -219,3 +219,4 @@ fs.createReadStream('./Output Template (1).csv')
 
 
     });
+//}
