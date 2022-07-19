@@ -1,1 +1,4 @@
 node_modules
+*.traineddata
+*.png
+/public/temp
