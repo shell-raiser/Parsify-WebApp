@@ -16,7 +16,7 @@ var fs = require('fs');
 const tesseract = require("node-tesseract-ocr")
 
 const tessConfig = {
-    lang: "eng+guj", // default
+    lang: "eng+hin+tam+pan+ori+mar+mal+kan+guj+tel", // default
     oem: 3,
     psm: 3,
 }
@@ -34,22 +34,42 @@ outputImages1.then(function (outputImages) {
             try {
                 //const images = outputImages
                 //const text = await tesseract.recognize(images)
-                const img = "output" + i + ".png"
-                const text = await tesseract.recognize(img, tessConfig)
-                console.log(i)
+                const img = appRoot + "/public/temp/output" + i + ".png"
+                var text = await tesseract.recognize(img, tessConfig)
+                // theText = theText + text;
+                //console.log(theText)
+                inCount++;
+                // fs.writeFile(appRoot + "/public/temp/outputText" + inCount + ".txt", text, function (error) {
+                //     if (error) { console.error("Error: " + error); }
+                // });
+                console.log('running' + inCount)
+                // console.log('Ran inside');
+                return (text)
+
             } catch (error) {
                 console.log(error.message)
             }
         }
-        main()
-        // Tesseract.recognize(
-        //     outputImages[i],
-        //     'eng',
-        //     'guj',
-        //     { logger: m => console.log(m) }
-        // ).then(({ data: { text } }) => {
-        //     console.log(text);
-        // })
+        async function theTextCalc() {
+            let text = await main()
+            theText = theText + text;
+            console.log(text)
+            outCount++;
+            if (outCount == outputImages.length) {
+                fs.writeFile(appRoot + "outputText.txt", text, function (error) {
+                    if (error) { console.error("Error: " + error); }
+                });
+                console.log("ALL DONE")
+                fs1.remove(appRoot + "/public/temp", (error) => {
+                    if (error) {
+                        console.log(error);
+                    } else {
+                        console.log("Temp Folder Deleted Successfully !!");
+                    }
+                });
+            }
+        }
+        theTextCalc()
     }
 
 
