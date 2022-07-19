@@ -145,7 +145,7 @@ fs.createReadStream('./Output Template (1).csv')
             );
 
             const tessConfig = {
-                lang: "eng",
+                lang: "eng+hin+tam+pan+ori+mar+mal+kan+guj+tel",
                 oem: 3,
                 psm: 3,
             }
@@ -202,8 +202,8 @@ fs.createReadStream('./Output Template (1).csv')
                                     // console.log("Temp Folder Deleted Successfully !!");
                                 }
                             });
-                            
-                            //res.send($.html());
+                            console.log(parseString(theText))
+
                         }
                     }
                     theTextCalc()
