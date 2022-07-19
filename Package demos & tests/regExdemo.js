@@ -1,10 +1,10 @@
-var fs = require('fs');
+var fs = require('fs')
 
 
 fs.readFile("/workspace/Parsify-WebApp/extractedText.txt", "utf8", function (error, data) {
-    if (error) { console.error("Error: " + error); }
+    if (error) { console.error("Error: " + error) }
     console.log("saved")
-    const theString = data;
+    const theString = data
 
     let dist_name = theString.substring(theString.search('District') + 'District'.length, theString.search('Police Station'))
 
@@ -49,36 +49,36 @@ fs.readFile("/workspace/Parsify-WebApp/extractedText.txt", "utf8", function (err
     let sections = theString.substring(theString.search('Sections') + 'Sections'.length, theString.search('Sections') + 'Sections'.length + 13)
 
 
-    let year = date.substring(date.length - 4);
+    let year = date.substring(date.length - 4)
 
     let op = {
-        "dist_name": dist_name,
-        "police_station": police_station,
-        "fir_date": fir_date,
-        "fir_no": fir_no,
+        "dist_name": dist_name.replace(/[\n\r]/g, ''),
+        "police_station": police_station.replace(/[\n\r]/g, ''),
+        "fir_date": fir_date.replace(/[\n\r]/g, ''),
+        "fir_no": fir_no.replace(/[\n\r]/g, ''),
         "state": "",
-        "accused_name_1": accused_name_1,
+        "accused_name_1": accused_name_1.replace(/[\n\r]/g, ''),
         "act": act,
-        "complaint_informan_father_husband_name": complaint_informan_father_husband_name,
-        "complaint_informan_name": complaint_informan_name,
-        "complaint_informan_nationality": complaint_informan_nationality,
+        "complaint_informan_father_husband_name": complaint_informan_father_husband_name.replace(/[\n\r]/g, ''),
+        "complaint_informan_name": complaint_informan_name.replace(/[\n\r]/g, ''),
+        "complaint_informan_nationality": complaint_informan_nationality.replace(/[\n\r]/g, ''),
         "date": date,
-        "details_address_1": details_address_1,
-        "dist_name_pdf": dist_name,
-        "occupation": occupation,
-        "occurrence_of_offence_date_from": occurrence_of_offence_date_from,
-        "occurrence_of_offence_time_from": occurrence_of_offence_time_from,
-        "occurrence_of_offence_date_to": occurrence_of_offence_date_to,
-        "occurrence_of_offence_time_period": occurrence_of_offence_time_period,
-        "occurrence_of_offence_time_to": occurrence_of_offence_time_to,
-        "place_of_occurrence_name_of_police_station_org": place_of_occurrence_name_of_police_station_org,
-        "sections": sections,
-        "year": year
+        "details_address_1": details_address_1.replace(/[\n\r]/g, ''),
+        "dist_name_pdf": dist_name.replace(/[\n\r]/g, ''),
+        "occupation": occupation.replace(/[\n\r]/g, ''),
+        "occurrence_of_offence_date_from": occurrence_of_offence_date_from.replace(/[\n\r]/g, ''),
+        "occurrence_of_offence_time_from": occurrence_of_offence_time_from.replace(/[\n\r]/g, ''),
+        "occurrence_of_offence_date_to": occurrence_of_offence_date_to.replace(/[\n\r]/g, ''),
+        "occurrence_of_offence_time_period": occurrence_of_offence_time_period.replace(/[\n\r]/g, ''),
+        "occurrence_of_offence_time_to": occurrence_of_offence_time_to.replace(/[\n\r]/g, ''),
+        "place_of_occurrence_name_of_police_station_org": place_of_occurrence_name_of_police_station_org.replace(/[\n\r]/g, ''),
+        "sections": sections.replace(/[\n\r]/g, ''),
+        "year": year.replace(/[\n\r]/g, '')
     }
     console.log(op)
     // console.log(theString)
 
-});
+})
 
 
 

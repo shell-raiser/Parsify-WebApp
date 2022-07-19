@@ -66,7 +66,6 @@ fs.readFile("./Output Template (1).csv", "utf8", function (err, data) {
 
 
     // API for batch processing
-    \
     function parseString(theString) {
         let dist_name_org = theString.substring(theString.search('District') + 'District'.length, theString.search('Police Station'))
         let dist_name = Sanscript.t(dist_name_org, theLang.ss, 'hk')
@@ -163,17 +162,13 @@ fs.readFile("./Output Template (1).csv", "utf8", function (err, data) {
         }
     );
 
-    // console.log(typeof (req.body.States))
-    // console.log(req.body.States)
-    // console.log(theLang)
-
     const tessConfig = {
         lang: "eng+" + theLang.tess,
         oem: 3,
         psm: 3,
     }
 
-    let theText = " ";
+    let theText = "";
     let inCount = 0;
     let outCount = 0;
     fs.mkdir(appRoot + "/public/temp", { recursive: true }, (error) => {
@@ -198,13 +193,12 @@ fs.readFile("./Output Template (1).csv", "utf8", function (err, data) {
                     const img = appRoot + "/public/temp/output" + i + ".png"
                     var text = await tesseract.recognize(img, tessConfig)
                     // theText = theText + text;
-                    //console.log(theText)
                     inCount++;
                     // fs.writeFile(appRoot + "/public/temp/outputText" + inCount + ".txt", text, function (error) {
                     //     if (error) { console.error("Error: " + error); }
                     // });
                     console.log('running' + inCount)
-                    // console.log('Ran inside');
+
                     return (text)
 
                 } catch (error) {
@@ -231,23 +225,7 @@ fs.readFile("./Output Template (1).csv", "utf8", function (err, data) {
                 }
             }
             theTextCalc()
-            // theText = theText + main();
-            // console.log(theText)
         }
 
     });
-
-    //console.log('hi')
-    //console.log(theText)
-
-
-
-    // pdfParse(req.files.pdfFile).then(result => {
-    //     console.log(result.text);
-    //     // We can transliterate text like this 
-    //     //translitedText = Sanscript.t(result.text, 'kannada', 'hk')
-    //     //res.send(translitedText);
-    //     res.send(result.text);
-    // });
-
 });
